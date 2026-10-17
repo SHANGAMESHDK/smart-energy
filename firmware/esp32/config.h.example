@@ -1,0 +1,33 @@
+#ifndef CONFIG_H
+#define CONFIG_H
+
+// ============================================================================
+// SMART ENERGY METER - ESP32 FIRMWARE CONFIGURATION TEMPLATE
+// Copy this file to "config.h" and insert your local network parameters.
+// NEVER commit "config.h" containing real Wi-Fi passwords to public Git repos!
+// ============================================================================
+
+// Wi-Fi Network Credentials
+#define WIFI_SSID       "YOUR_WIFI_SSID"
+#define WIFI_PASSWORD   "YOUR_WIFI_PASSWORD"
+
+// Raspberry Pi 4 Model B Gateway API URL
+// Replace with your Pi's LAN IP address or local hostname (e.g., "http://192.168.1.100:8000")
+#define API_BASE_URL    "http://192.168.1.7:8000"
+#define API_ENDPOINT    "/api/readings"
+
+// Node & Telemetry Configuration
+#define NODE_DEVICE_ID  "esp32_meter_01"
+#define POST_INTERVAL_MS 15000  // 15 seconds between telemetry transmissions
+
+// Hardware Mode:
+// Set to 1 if physical PZEM-004T / CT sensor hardware is wired.
+// Set to 0 to run in calibrated simulation mode for development/testing.
+#define HARDWARE_SENSOR_CONNECTED 0
+
+// Hardware Pinout (when HARDWARE_SENSOR_CONNECTED == 1)
+// PZEM-004T v3.0 UART pins (SoftwareSerial / HardwareSerial2)
+#define PZEM_RX_PIN     16  // Connects to PZEM TX
+#define PZEM_TX_PIN     17  // Connects to PZEM RX (via level shifter if needed)
+
+#endif // CONFIG_H

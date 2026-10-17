@@ -4,7 +4,8 @@ from datetime import date
 
 import pandas as pd
 
-BILL_FILE = Path.home() / "smart-energy" / "data" / "bills.csv"
+BASE_DIR = Path(__file__).resolve().parent.parent
+BILL_FILE = BASE_DIR / "data" / "bills.csv"
 
 
 def load_bills():
